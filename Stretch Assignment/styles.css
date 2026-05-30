@@ -1,0 +1,230 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+
+    background:
+    linear-gradient(to right ,rgba(0,0,0,0.65), rgba(0, 0, 0, 0.5)),
+    url(assets/cofee-bg-image.jpg);
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:2rem;
+    color:#fff;
+}
+
+.menu-wrapper{
+    width:100%;
+    max-width:1200px;
+
+    background:rgba(255,255,255,0.18);
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 60px rgba(0,0,0,0.45);
+}
+
+.top-bar{
+    padding:2.5rem 2rem 1.5rem;
+    text-align:center;
+
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.top-bar h1{
+    font-size:clamp(2rem,4vw,3.5rem);
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:0.6rem;
+
+    color:#ff9e37;
+}
+
+.top-bar p{
+    color:#d7d7d7;
+    font-size:1rem;
+}
+
+/* GRID ARCHITECTURE */
+
+.menu-board{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:2rem;
+
+    padding:2rem;
+}
+
+.menu-section{
+    background: rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    border-radius:24px;
+
+    padding:2rem;
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    transition:0.3s ease;
+}
+
+.menu-section:hover{
+    transform:translateY(-6px);
+
+    box-shadow:0 14px 30px rgba(0,0,0,0.25);
+}
+
+.section-title{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:1.5rem;
+}
+
+.section-title h2{
+    font-size:1.6rem;
+
+    color:#ffaa50;
+
+    font-weight:600;
+}
+
+.tag{
+    background:#e69743;
+
+    color: white;
+
+    padding:0.35rem 0.9rem;
+
+    border-radius:50px;
+
+    font-size:0.8rem;
+
+    font-weight:600;
+}
+
+/* ITEM STYLING */
+
+.menu-item{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:1rem;
+
+    padding:1rem 0;
+
+    border-bottom:1px dotted rgba(255,255,255,0.35);
+}
+
+.menu-item:last-child{
+    border-bottom:none;
+}
+
+.item-left h3{
+    font-size:1rem;
+
+    font-weight:500;
+
+    margin-bottom:0.2rem;
+}
+
+.item-left p{
+    font-size:0.84rem;
+
+    color: white
+}
+
+.price{
+    color:#f6d8b8;
+
+    font-weight:700;
+
+    font-size:1rem;
+
+    white-space:nowrap;
+}
+
+.footer-note{
+    text-align:center;
+
+    padding:1.2rem;
+
+    border-top:1px solid rgba(255,255,255,0.08);
+
+    color:#cfcfcf;
+
+    font-size:0.9rem;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width:768px){
+
+    .menu-board{
+        grid-template-columns:1fr;
+    }
+
+    .menu-section{
+        padding:1.5rem;
+    }
+
+    .top-bar{
+        padding:2rem 1.2rem 1.4rem;
+    }
+
+    .menu-board{
+        padding:1.2rem;
+    }
+}
+
+@media (max-width:480px){
+
+    body{
+        padding:1rem;
+    }
+
+    .menu-section{
+        border-radius:18px;
+    }
+
+    .menu-item{
+        align-items:flex-start;
+    }
+
+    .section-title{
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:0.7rem;
+    }
+}
