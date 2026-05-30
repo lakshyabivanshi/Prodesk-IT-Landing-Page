@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, Courier, monospace;
+}
+
+.navbar{
+    background-color: var(--primary-color);
+    color: black;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    height: 70px;
+}
+
+.logo h2{
+    margin-left: 10px;
+    color: white;
+    font-weight: 465;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+}
+
+#mode-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mode-icon{
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+.navbar-links{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+.navbar-links li{
+    margin-left: 20px;
+}
+
+.navbar-links li a{
+    text-decoration: none;
+    color: white;
+}
+
+.hamburger{
+    display: none;
+}
+.hamburger img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px){
+    .navbar-links{
+        display: none;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .navbar-links li:hover{
+        border: 1px solid white;
+        background-color: var(--primary-color);
+    }
+
+    .navbar-links.show{
+        display: flex;
+    }
+
+    .hamburger{ 
+        display: block;
+    }
+
+    .navbar-links li{
+        margin: 10px 0;
+    }
+}
+
+@media (min-width: 600px){
+.navbar-links li a:hover{
+    background-color: rgba(173,173,173,0.505);
+}
+}
+
+.main-screen{
+    background-color: aliceblue;
+    height: 87vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-screen h1{
+    color: var(--primary-color);
+}
+
+.btn{
+    padding: 7px 17px;
+    margin: 9px 0 0 0;
+    background-color: white;
+    color: #2a55e5;
+    border: 1px solid var(--primary-color);
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.btn a{
+    text-decoration: none; 
+    color: var(--primary-color);
+}
+
+.service-section{
+    background-color: var(--primary-color);
+    min-height: 40vh;
+    width: 100%;
+}
+
+.service-heading{
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-container{
+    /* height: 200px; */
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.card{
+    height: 123px;
+    width: 288px;
+    margin: 10px 10px;
+    background-color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 3px;
+}
+
+.card h4{
+    margin: 5px 0;
+    color: var(--primary-color);
+}
+
+.card p{
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+    list-style: none;
+}
+
+/* Footer from here */
+.footer-bar{
+    height: 12vh;
+    width: 100%;
+    background-color: #0f172a;
+    text-align: center;
+}
+
+.footer-bar p{
+    padding: 5px 0;
+    color: white;
+    font-size: 10px;
+}
+
+.social-media{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.facebook-logo{
+    height: 16px;
+    margin: 1px;
+}
+
+.instagram-logo{
+    height: 19px;
+}
+
+.linkedin-logo{
+    height: 17px;
+}
+
+.dark .main-screen{
+    background-color: black;
+}
+
+.dark .main-screen p{
+    color: white;
+}
+
+.dark .main-screen .btn{
+    border: 1px solid white ;
+}
+
+
+/* Micro-Interations */
+.card,
+.btn{
+    transition: 0.3s;
+}
+
+.card:hover,
+.btn:hover{
+    transform: scale(1.05)
+} 
