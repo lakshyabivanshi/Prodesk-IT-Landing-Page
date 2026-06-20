@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AGCAM – Automated Guest Communication Augmentation Module for The Verdant Retreat luxury boutique hotel staff.">
+    <title>AGCAM | The Verdant Retreat – Guest Communication Suite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ===================== LOGIN SCREEN ===================== -->
+    <section id="login-screen" class="login-screen">
+        <div class="login-backdrop"></div>
+        <div class="login-card">
+            <div class="login-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40 8C40 8 20 20 20 40C20 51.046 28.954 60 40 60C51.046 60 60 51.046 60 40C60 20 40 8 40 8Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M40 16C40 16 28 24 28 38C28 44.627 33.373 50 40 50C46.627 50 52 44.627 52 38C52 24 40 16 40 16Z" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.6"/>
+                        <circle cx="40" cy="38" r="4" fill="currentColor" opacity="0.8"/>
+                    </svg>
+                </div>
+                <h1 class="login-title">The Verdant Retreat</h1>
+                <p class="login-subtitle">Guest Communication Augmentation Module</p>
+            </div>
+            <div class="login-form">
+                <label for="staff-id" class="login-label">Staff Identification</label>
+                <input type="text" id="staff-id" class="login-input" placeholder="Enter your Staff ID to continue..." autocomplete="off">
+                <p id="login-error" class="login-error" aria-live="polite"></p>
+                <button id="login-button" class="login-button">
+                    <span class="login-button-text">Authenticate & Enter</span>
+                    <span class="login-button-arrow">→</span>
+                </button>
+            </div>
+            <p class="login-footer">Internal tool — Authorized personnel only</p>
+        </div>
+    </section>
+    <!-- ===================== MAIN APPLICATION ===================== -->
+    <main id="app-main" class="app-main hidden">
+        <!-- Top Navigation Bar -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="header-logo-sm">
+                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40 8C40 8 20 20 20 40C20 51.046 28.954 60 40 60C51.046 60 60 51.046 60 40C60 20 40 8 40 8Z" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                        <circle cx="40" cy="38" r="4" fill="currentColor" opacity="0.8"/>
+                    </svg>
+                </div>
+                <div class="header-titles">
+                    <h1 class="header-brand">The Verdant Retreat</h1>
+                    <span class="header-module">AGCAM v1.0</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="staff-badge" id="staff-badge">
+                    <span class="staff-badge-icon">👤</span>
+                    <span class="staff-badge-id" id="logged-in-staff-id"></span>
+                </div>
+                <button id="logout-button" class="logout-button" title="Sign Out">Sign Out</button>
+            </div>
+        </header>
+        <!-- Dashboard Content -->
+        <div class="dashboard">
+            <div class="dashboard-grid">
+                <!-- LEFT COLUMN: Input Panel -->
+                <section class="panel input-panel" aria-label="Guest Inquiry Input">
+                    <div class="panel-header">
+                        <h2 class="panel-title">
+                            <span class="panel-icon">📨</span>
+                            Incoming Guest Inquiry
+                        </h2>
+                        <p class="panel-description">Paste or enter the guest's email details below</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-subject" class="form-label">Email Subject</label>
+                        <input 
+                            type="text" 
+                            id="email-subject" 
+                            class="form-input" 
+                            placeholder="Guest Email Subject Line (e.g., 'Check-in Time Inquiry')" 
+                            maxlength="120"
+                        >
+                        <span class="char-count" id="subject-char-count">0 / 120</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-body-input" class="form-label">Email Body <span class="required-star">*</span></label>
+                        <textarea 
+                            id="email-body-input" 
+                            class="form-textarea" 
+                            placeholder="Paste Guest Email Body Here..." 
+                            maxlength="2000"
+                            rows="8"
+                        ></textarea>
+                        <span class="char-count" id="body-char-count">0 / 2000</span>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group form-group-half">
+                            <label for="guest-name" class="form-label">Guest Name <span class="optional-tag">Optional</span></label>
+                            <input 
+                                type="text" 
+                                id="guest-name" 
+                                class="form-input" 
+                                placeholder="Guest Name (e.g., 'Ms. Eleanor Vance')" 
+                                maxlength="80"
+                            >
+                        </div>
+                        <div class="form-group form-group-half">
+                            <label for="booking-id" class="form-label">Booking Reference <span class="optional-tag">Optional</span></label>
+                            <input 
+                                type="text" 
+                                id="booking-id" 
+                                class="form-input" 
+                                placeholder="Booking Reference (e.g., 'VR-20240915-A7B2C')"
+                            >
+                            <p id="booking-warning" class="booking-warning hidden" aria-live="polite"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tone-selector" class="form-label">Response Tone</label>
+                        <div class="select-wrapper">
+                            <select id="tone-selector" class="form-select">
+                                <option value="standard" selected>Standard Professional</option>
+                                <option value="warm">Warm &amp; Welcoming</option>
+                                <option value="concise">Concise &amp; Direct</option>
+                                <option value="apologetic">Apologetic (Service Recovery)</option>
+                            </select>
+                            <span class="select-arrow">▾</span>
+                        </div>
+                    </div>
+                    <div class="action-area">
+                        <button id="generate-reply-button" class="generate-button" disabled>
+                            <span class="generate-button-spinner hidden" id="generate-spinner"></span>
+                            <span class="generate-button-text" id="generate-button-text">Generate Professional Reply</span>
+                        </button>
+                        <p id="api-error-message" class="api-error-message hidden" aria-live="assertive"></p>
+                    </div>
+                </section>
+                <!-- RIGHT COLUMN: Output Panel -->
+                <section class="panel output-panel" aria-label="Generated Reply Output">
+                    <div class="panel-header">
+                        <h2 class="panel-title">
+                            <span class="panel-icon">✉️</span>
+                            AI-Generated Reply
+                        </h2>
+                        <p class="panel-description">Review, refine if needed, then copy to your email client</p>
+                    </div>
+                    <div class="reply-display-container">
+                        <div id="generated-reply" class="reply-display" aria-label="Generated email reply content">
+                            <p class="reply-placeholder">Generated reply will appear here...</p>
+                        </div>
+                    </div>
+                    <div class="output-actions">
+                        <button id="copy-button" class="copy-button" disabled>
+                            <span class="copy-icon">📋</span>
+                            <span class="copy-text" id="copy-button-text">Copy to Clipboard</span>
+                        </button>
+                    </div>
+                    <!-- Metadata Display -->
+                    <div id="reply-meta" class="reply-meta hidden">
+                        <div class="meta-item">
+                            <span class="meta-label">Tone Applied</span>
+                            <span class="meta-value" id="meta-tone"></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Generated At</span>
+                            <span class="meta-value" id="meta-timestamp"></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Token Usage</span>
+                            <span class="meta-value" id="meta-tokens"></span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>AGCAM v1.0 — Automated Guest Communication Augmentation Module &copy; 2026 The Verdant Retreat</p>
+        </footer>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
