@@ -37,7 +37,7 @@ form.addEventListener('submit', async function (e) {
             formData.append('resume', resumeFile);
         }
 
-        const response = await fetch('http://localhost:5000/api/generate', {
+        const response = await fetch('https://prodesk-it-landing-page-1.onrender.com/api/generate', {
             method: 'POST',
           body: formData
         });
