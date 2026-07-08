@@ -44,7 +44,7 @@ function DroppableColumn({ id, title, count, tasks, bgClass, headerBg, headerTex
     const { setNodeRef } = useDroppable({ id });
     return (
         <div ref={setNodeRef} className={`${bgClass} rounded-xl shadow-md p-5 min-h-[450px] flex flex-col`}>
-            <h2 className={`text-center text-sm font-semibold tracking-wider p-3 rounded-lg mb-5 bg-blue-100 text-blue-700 flex justify-between items-center px-4`}>
+            <h2 className={`text-center text-sm font-semibold tracking-wider p-3 rounded-lg mb-5 ${headerBg} ${headerText} flex justify-between items-center px-4`}>
                 <span>{title}</span>
                 <span className={`${badgeBg} ${badgeText} px-2 py-0.5 rounded-full text-xs`}>{count}</span>
             </h2>
@@ -160,7 +160,7 @@ function KanbanBoard({ searchTerm = '' }) {
                     tasks={todoTasks}
                     bgClass="bg-blue-50"
                     headerBg="bg-blue-100"
-                    header-text="text-blue-700"
+                    headerText="text-blue-700"
                     badgeBg="bg-blue-200"
                     badgeText="text-blue-700"
                     searchTerm={searchTerm}
@@ -195,7 +195,7 @@ function KanbanBoard({ searchTerm = '' }) {
                     tasks={inProgressTasks}
                     bgClass="bg-amber-50"
                     headerBg="bg-amber-100"
-                    header-text="text-amber-700"
+                    headerText="text-amber-700"
                     badgeBg="bg-amber-200"
                     badgeText="text-amber-700"
                     searchTerm={searchTerm}
@@ -216,7 +216,7 @@ function KanbanBoard({ searchTerm = '' }) {
                     tasks={doneTask}
                     bgClass="bg-green-50"
                     headerBg="bg-green-100"
-                    header-text="text-green-700"
+                    headerText="text-green-700"
                     badgeBg="bg-green-200"
                     badgeText="text-green-700"
                     searchTerm={searchTerm}
