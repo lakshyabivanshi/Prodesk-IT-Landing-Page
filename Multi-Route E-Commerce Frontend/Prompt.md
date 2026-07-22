@@ -64,3 +64,9 @@ To implement robust state persistence, mock authentication, protected routing, a
 * **Prompt & Solution**: 
   > *"How do I trigger a notification or alert inside my `addToCart` function so the user knows their product was successfully added?"*
   * **Implementation**: Integrated structured feedback handling within the state management layer to confirm product addition actions before directing users to view their bag summary.
+
+  ### 11. Single Page Application (SPA) Routing & Netlify 404 Fix
+* **Requirement**: Prevent 404 "Page Not Found" errors on Netlify when users refresh sub-routes or direct links like `/checkout` or product paths.
+* **Prompt & Solution**: 
+  > *"Why am I getting a 404 Page Not Found error on Netlify when I refresh my project page after adding items or navigating to sub-routes?"*
+  * **Implementation**: Resolved the client-side routing issue by creating a `_redirects` configuration file inside the `public` folder with the rewrite rule (`/* /index.html 200`), ensuring all server requests safely fall back to the main React application entry point.
